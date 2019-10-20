@@ -27,6 +27,8 @@ namespace Bogus.Havoc
                      });
                }
 
+               Thread.Sleep(35_000); // Thread Pool recalibrates every .5 seconds.
+
                if( workerAvail == 0 ) break;
             }
          }
