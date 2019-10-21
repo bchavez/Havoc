@@ -48,6 +48,7 @@ Usage
     * `DotNetFrameworkCorruption` - Static values in the **.NET Framework** are manipulated at runtime with various out of range values that can cause problems if calling code is invoked.
 * **`Network`**
     * `TcpPortExhaustion` - Exhaust the number of available TCP/IP ports on the local operating system.
+    * `TcpConnectionExhaustion` - Create a massive amount of TCP/IP connections to a given host.
     * `TcpSend` - Sends TCP data as fast as possible saturating a TCP link with random data.
     * `UdpSend` - Send UDP data as fast as possible saturating UDP packets with random data. 
 * **`Os`**
