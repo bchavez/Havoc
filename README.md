@@ -1,27 +1,26 @@
-[1]:https://www.nuget.org/packages/Bogus/
-[2]:https://en.wikipedia.org/wiki/EICAR_test_file
+<img src="https://raw.githubusercontent.com/bchavez/Havoc/master/Docs/logo.png" align='right' />
 
-Bogus.Havoc
+Havoc
 ======================
 
 Project Description
 -------------------
-Hello. I'm your host **[Brian Chavez](https://github.com/bchavez)** ([twitter](https://twitter.com/bchavez)). **Bogus.Havoc** is a collection of dangerous code that can wreck havoc in .NET applications and the operating system. **Bogus.Havoc** is built on [**Bogus**][1] generator fake data generator for .NET. 
+Hello. I'm your host **[Brian Chavez](https://github.com/bchavez)** ([twitter](https://twitter.com/bchavez)). **Havoc** is a collection of dangerous code that can wreck havoc in .NET applications and the operating system. **Havoc** is built on [**Bogus**][1] generator fake data generator for .NET. 
 
-**Bogus.Havoc** will help you stress test your .NET applications under various load, simulation, and failure-injection scenarios. If you like **Bogus.Havoc** star :star: the repository and show your friends! :smile: If you find **Bogus.Havoc** useful consider supporting the [**Bogus**][1] project! :dizzy: :muscle: 
+**Havoc** will help you stress test your .NET applications under various load, simulation, and failure-injection scenarios. If you like **Havoc** star :star: the repository and show your friends! :smile: :dizzy: :muscle: 
 
 
 ### Download & Install
-**Nuget Package [Bogus.Havoc](https://www.nuget.org/packages/Bogus.Havoc/)**
+**Nuget Package [Havoc](https://www.nuget.org/packages/Havoc/)**
 
 ```powershell
-Install-Package Bogus.Havoc
+Install-Package Havoc
 ```
 Minimum Requirements: **.NET Standard 1.3** or **.NET Standard 2.0** or **.NET Framework 4.0**.
 
 Usage
 -----
-### Bogus.Havoc Scenarios
+### Havoc Scenarios
 
 * **`Cpu`** 
 	* `Stress` - Saturate the CPU with excessive computational work.
@@ -61,3 +60,9 @@ Usage
 * **`Dangerous`**
 	* `DiskCorruption` - Randomly modify executing assembly and reference assemblies.
 	* `DiskFull` - Continuously fill the disk until there is no free space left.
+
+
+
+
+[1]:https://www.nuget.org/packages/Bogus/
+[2]:https://en.wikipedia.org/wiki/EICAR_test_file
