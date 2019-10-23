@@ -32,6 +32,9 @@
     <DefineConstants>$(DefineConstants);STANDARD;STANDARD13</DefineConstants>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Remove="Models\**" />
+    <EmbeddedResource Remove="Models\**" />
+    <None Remove="Models\**" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Bogus" Version="28.4.1" />
@@ -45,8 +48,5 @@
   <ItemGroup Condition=" '$(TargetFramework)' == 'netstandard1.3' ">
     <PackageReference Include="System.Reflection.TypeExtensions" Version="4.3.0" />
     <PackageReference Include="System.Globalization.Extensions" Version="4.3.0" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Models\" />
   </ItemGroup>
 </Project>

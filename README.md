@@ -25,12 +25,13 @@ Usage
 * **`Cpu`** 
 	* `Stress` - Saturate the CPU with excessive computational work.
 	* `ContextSwitching` - Create a high amount of thread context switching.
-* **`Program`**
-  	* `Deadlock` - Create a massive mount of deadlocked threads.
-  	* `Threads` - Create a massive amount of threads in a process.
+* **`Process`**
+  	* `MassDeadlock` - Create a massive mount of deadlocked threads.
+  	* `MassThread` - Create a massive amount of threads in a process.
   	* `FileOpenHandles` - Excessively create large amount of open file handles.
   	* `ThreadPoolStarvation` - Create a situation where the thead pool is starved.
 	* `ThreadPoolChaos` - Keeps reference to thread pool threads, then later calls `Abort()` randomly causing thread pool threads to randomly abort executing code.
+	* `ProcessExit` - Calls `Environment.FailFast` and terminates the current running process immediately.
 * **`Disk`**
  	* `WriteEicar` - Write an [EICAR][2] test string to disk that will cause an anti-virus scanners to trigger.
 	* `CachedWrites` - Write as fast as possible using the same data to disk.
