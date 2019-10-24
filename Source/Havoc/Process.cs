@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Concurrent;
 using System.Threading;
+using System.Threading.Tasks;
 using Bogus;
 
 namespace Havoc
@@ -13,6 +14,16 @@ namespace Havoc
    public class Scenario
    {
       public Faker Faker { get; set; } = new Faker("en");
+
+      protected void SetupDedicatedThread(out Thread thread, out TaskCompletionSource<Void> tcs, ThreadStart starter, string method)
+      {
+         thread = new Thread(starter)
+            {
+               Name = $"{this.GetType().FullName}.{method} Thread"
+            };
+
+         tcs = new TaskCompletionSource<Void>();
+      }
    }
 
 
