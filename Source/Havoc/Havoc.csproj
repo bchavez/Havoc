@@ -3,7 +3,21 @@
     <Description>A set of dangerous algorithms that cause havoc in .NET applications and operating systems for use in chaos engineering.</Description>
     <PackageReleaseNotes>## v1.0.0
 
-
+* `Cpu.Stress` implemented.
+* `Danger.DiskFull` implemented.
+* `Danger.WriteEicar` implemented.
+* `Danger.WriteEicarMany` implemented.
+* `Memory.StackOverflow` implemented.
+* `Memory.MemoryLeak` implemented.
+* `Memory.OutOfMemory` implemented.
+* `Network.LocalTcpPortExhaustion` implemented.
+* `MassMutex` implemented.
+* `MassSystemTimer` implemented.
+* `Process.ThreadPoolStarvation` implemented.
+* `Process.ProcessExit` implemented.
+* `Process.ThreadPoolChaos` implemented.
+* `Process.MassThreads` implemented.
+* `Process.OpenFileHandles` implemented.
 Full History Here: https://github.com/bchavez/Havoc/blob/master/HISTORY.md</PackageReleaseNotes>
     <Version>0.0.0-localbuild</Version>
     <Authors>Brian Chavez</Authors>
