@@ -5,7 +5,7 @@ using Havoc.Crypto;
 
 namespace Havoc
 {
-   public class Dangerous : Scenario
+   public class Danger : Scenario
    {
       /// <summary>
       /// Append the data array to a file as much as possible until the disk is full.
