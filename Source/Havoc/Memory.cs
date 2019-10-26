@@ -12,7 +12,7 @@ namespace Havoc
          StackOverflow();
       }
 
-      public Task<Void> MemoryLeak(int allocationSize, TimeSpan allocationDelay, CancellationToken cancellationToken = default)
+      public Task<Void> MemoryLeak(int bufferSize, TimeSpan allocationDelay, CancellationToken cancellationToken = default)
       {
          var list = new List<byte[]>();
 
@@ -29,7 +29,7 @@ namespace Havoc
             {
                while( !cancellationToken.IsCancellationRequested )
                {
-                  list.Add(new byte[allocationSize]);
+                  list.Add(new byte[bufferSize]);
 
                   if ( allocationDelay != TimeSpan.Zero )
                   {
