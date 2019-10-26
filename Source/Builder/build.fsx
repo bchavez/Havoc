@@ -251,7 +251,7 @@ open Fake.Core.TargetOperators
 
 "Clean" ==> "restore" ==> "BuildInfo"
 
-"BuildInfo" =?> ("setup-snk", true) ==> "dnx" ==> "zip"
+"BuildInfo" =?> ("setup-snk", BuildContext.IsTaggedBuild) ==> "dnx" ==> "zip"
 
 "dnx" ==> "nuget"
 
