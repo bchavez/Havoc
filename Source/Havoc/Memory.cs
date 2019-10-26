@@ -3,38 +3,35 @@ using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 
+
 namespace Havoc
 {
+   public static class DataSize
+   {
+      public const int OneMB = 1024 * 1024 * 1;
+   }
+
    public class Memory : Scenario
    {
-      public void StackOverflow()
+      public void StackOverflow( TimeSpan? allocationDelay = null)
       {
-         StackOverflow();
+         if( allocationDelay.HasValue ) Thread.Sleep(allocationDelay.Value);
+         StackOverflow(allocationDelay);
       }
 
-      public Task<Void> MemoryLeak(int bufferSize, TimeSpan allocationDelay, CancellationToken cancellationToken = default)
+      public void MemoryLeak(int bufferSize = DataSize.OneMB, TimeSpan? allocationDelay = null, CancellationToken cancellationToken = default)
       {
          var list = new List<byte[]>();
 
-         this.SetupDedicatedThread(out var thread, out var tcs, Start, nameof(MemoryLeak));
-
-         thread.Start();
-
-         return tcs.Task;
-
-
-         void Start()
+         using (cancellationToken.Register(CleanUp))
          {
-            using( cancellationToken.Register(CleanUp) )
+            while (!cancellationToken.IsCancellationRequested)
             {
-               while( !cancellationToken.IsCancellationRequested )
-               {
-                  list.Add(new byte[bufferSize]);
+               list.Add(new byte[bufferSize]);
 
-                  if ( allocationDelay != TimeSpan.Zero )
-                  {
-                     Thread.Sleep(allocationDelay);
-                  }
+               if (allocationDelay.HasValue)
+               {
+                  Thread.Sleep(allocationDelay.Value);
                }
             }
          }

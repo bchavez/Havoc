@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Concurrent;
+using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
 using Bogus;
@@ -8,7 +9,7 @@ namespace Havoc
 {
    public static class EvilData
    {
-      public const string Eicar = "";
+      public const string Eicar = "g+NKiFT5m3s/2gpOikH1zWfHGIb0P2WqJfoCM4uTKN5o6R/71rIs5ZZl+OcpKz/UWo1n0JMriPWFNVcWDZ0iNbL++FS7hB0f";
    }
 
    public class Scenario
@@ -67,10 +68,13 @@ namespace Havoc
       }
 
       /// <summary>
-      /// Causes a process to exit and terminate when called.
+      /// Causes a process to exit and terminate after some delay.
       /// </summary>
-      public void ProcessExit()
+      /// <param name="terminateDelay">If no delay is specified, a random time is chosen.</param>
+      public void ProcessExit(TimeSpan? terminateDelay = null)
       {
+         var delay = terminateDelay ?? this.Faker.Date.Timespan(TimeSpan.FromDays(1));
+         Thread.Sleep(delay);
          Environment.FailFast("Havoc Terminated Process");
       }
 
@@ -95,7 +99,6 @@ namespace Havoc
       /// </summary>
       /// <param name="spawnInterval">The amount of time to wait before spawning a new thread. Default is zero delay and spawn as many threads as fast as possible.</param>
       /// <param name="cancellationToken">Canceling the token will release the amassed threads.</param>
-      ///// <param name="threadCount">The number of threads to spawn. Default is no-limit, as many as the operating system will allow.</param>
       public void MassThreads(TimeSpan? spawnInterval = null, CancellationToken cancellationToken = default)
       {
          using( var gate = new ManualResetEventSlim(false) )
@@ -105,13 +108,32 @@ namespace Havoc
                while( true )
                {
                   var t = new Thread(() => gate.Wait());
-                  if(spawnInterval is TimeSpan s) Thread.Sleep(s);
+                  t.Start();
+                  if(spawnInterval.HasValue) Thread.Sleep(spawnInterval.Value);
                }
             }
 
             void Release()
             {
                gate.Set();
+            }
+         }
+      }
+
+
+
+      /// <summary>
+      /// Open a massive amount of open file handles. This method does not clean up.
+      /// </summary>
+      public void OpenFileHandles(string directory = null)
+      {
+         var drives = Environment.GetLogicalDrives();
+         foreach( var drive in drives )
+         {
+            var files = Directory.GetFiles(drive, "*.*", SearchOption.AllDirectories);
+            foreach( var file in files )
+            {
+               File.OpenRead(file);
             }
          }
       }

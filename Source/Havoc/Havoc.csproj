@@ -1,8 +1,10 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <Description>A set of dangerous algorithms that cause havoc in .NET applications and operating systems for use in chaos engineering.</Description>
-    <PackageReleaseNotes>
-    </PackageReleaseNotes>
+    <PackageReleaseNotes>## v1.0.0
+
+
+Full History Here: https://github.com/bchavez/Havoc/blob/master/HISTORY.md</PackageReleaseNotes>
     <Version>0.0.0-localbuild</Version>
     <Authors>Brian Chavez</Authors>
     <TargetFrameworks>net40;netstandard2.0</TargetFrameworks>

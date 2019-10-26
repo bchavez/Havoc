@@ -16,7 +16,7 @@ __test
 
 /__package
 /__compile
-/Source/Bogus.snk
+/Source/Havoc.snk
 
 Source/Builder/node_modules/**
 
@@ -172,3 +172,6 @@ $RECYCLE.BIN/
 /nuget.push.bat
 
 /Thread.Affinity.txt
+/Source/Builder/.ionide
+/Source/Builder/fake.exe
+/Source/secure-file.exe

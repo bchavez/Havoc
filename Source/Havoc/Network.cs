@@ -23,51 +23,42 @@ namespace Havoc
       /// Exhausts the number of available TCP/IP ports on the local operating system.
       /// </summary>
       /// <param name="localAdapterAddress">The local adapter to use when opening the TCP/IP port. Default is IPAddress.Any.</param>
-      public Task<Void> LocalTcpPortExhaustionAsync(IPAddress localAdapterAddress = null, CancellationToken cancellationToken = default)
+      public void LocalTcpPortExhaustionAsync(IPAddress localAdapterAddress = null, CancellationToken cancellationToken = default)
       {
          var listeners = new ConcurrentQueue<TcpListener>();
 
-         this.SetupDedicatedThread(out var thread, out var tcs, Start, nameof(LocalTcpPortExhaustionAsync));
-
-         thread.Start();
-
-         return tcs.Task;
-
-         void Start()
+         using (cancellationToken.Register(CleanUp))
          {
-            using (cancellationToken.Register(CleanUp))
+            while (!cancellationToken.IsCancellationRequested)
             {
-               while (!cancellationToken.IsCancellationRequested)
+               for (int port = 0; port < IPEndPoint.MaxPort; port++)
                {
-                  for (int port = 0; port < IPEndPoint.MaxPort; port++)
+                  try
                   {
-                     try
-                     {
-                        var tcp = new TcpListener(new IPEndPoint(localAdapterAddress, port));
-                        tcp.Start();
-                        listeners.Enqueue(tcp);
-                     }
-                     catch
-                     {
-                     }
+                     var tcp = new TcpListener(new IPEndPoint(localAdapterAddress, port));
+                     tcp.Start();
+                     listeners.Enqueue(tcp);
                   }
-
-                  Thread.Sleep(35_000);
+                  catch
+                  {
+                  }
                }
+
+               Thread.Sleep(35_000);
             }
          }
 
          void CleanUp()
          {
-            while( !listeners.IsEmpty )
+            while (!listeners.IsEmpty)
             {
-               if( listeners.TryDequeue(out var listener) )
+               if (listeners.TryDequeue(out var listener))
                {
                   try
                   {
                      listener.Stop();
                   }
-                  catch {}
+                  catch { }
                }
             }
          }
