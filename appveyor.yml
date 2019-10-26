@@ -4,7 +4,7 @@ image: Visual Studio 2017
 environment:
   FAKE_DETAILED_ERRORS: true
   SNKFILE_SECRET: #SecretDatabase.kdbx / OpenSource / Havoc.snk.enc
-    secure: WEjRyatIhEhFEg2hpbAxk2hnd0equIpvWJsfLyGwAIovBplU/2qsj4KKUldDnGNcw+8SL5OhpH556vsPPoMssw==
+    secure: zKxLlSFGt3pIaInkgGM2QWEp1Fsj3baFKMjIa/qDgfV/6OW2tDq5nElRf7upnbo6P/j6V4Wxr898Zz3ZCHQtDA==
 
 skip_commits:
   message: /(//skip\W*ci)|(read\W*me)/
