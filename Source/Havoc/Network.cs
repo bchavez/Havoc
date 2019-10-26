@@ -23,7 +23,7 @@ namespace Havoc
       /// Exhausts the number of available TCP/IP ports on the local operating system.
       /// </summary>
       /// <param name="localAdapterAddress">The local adapter to use when opening the TCP/IP port. Default is IPAddress.Any.</param>
-      public void LocalTcpPortExhaustionAsync(IPAddress localAdapterAddress = null, CancellationToken cancellationToken = default)
+      public void LocalTcpPortExhaustion(IPAddress localAdapterAddress = null, CancellationToken cancellationToken = default)
       {
          var listeners = new ConcurrentQueue<TcpListener>();
 

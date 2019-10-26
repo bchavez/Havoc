@@ -1,4 +1,4 @@
-## v1.0.0
+## v1.0.1
 
 * `Cpu.Stress` implemented.
 * `Danger.DiskFull` implemented.
