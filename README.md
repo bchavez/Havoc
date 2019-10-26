@@ -55,7 +55,7 @@ Legend: :x: - Not Implemented Yet.
 * **`Os`**
     * :x: `WaitHandles` - Create a massive amount of wait handles registered in the operating system.
     * `MassMutex` - Register a massive amount of handles in the operating system.
-    * :x: `SystemTimers` - Create massive amounts of System.Timers that fire at random times.
+    * `MassSystemTimer` - Create massive amounts of `System.Timers.Timer` that fire at random times.
     * :x: `Processes` - Create a massive amount of processes in the operating system.
 * **`Windows`**
     * :x: `BlueScreen` - Cause a blue screen kernel bug check.
