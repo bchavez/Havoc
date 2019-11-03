@@ -1,24 +1,8 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <Description>A set of dangerous algorithms that cause havoc in .NET applications and operating systems for use in chaos engineering.</Description>
-    <PackageReleaseNotes>## v1.0.0
-
-* `Cpu.Stress` implemented.
-* `Danger.DiskFull` implemented.
-* `Danger.WriteEicar` implemented.
-* `Danger.WriteEicarMany` implemented.
-* `Memory.StackOverflow` implemented.
-* `Memory.MemoryLeak` implemented.
-* `Memory.OutOfMemory` implemented.
-* `Network.LocalTcpPortExhaustion` implemented.
-* `MassMutex` implemented.
-* `MassSystemTimer` implemented.
-* `Process.ThreadPoolStarvation` implemented.
-* `Process.ProcessExit` implemented.
-* `Process.ThreadPoolChaos` implemented.
-* `Process.MassThreads` implemented.
-* `Process.OpenFileHandles` implemented.
-Full History Here: https://github.com/bchavez/Havoc/blob/master/HISTORY.md</PackageReleaseNotes>
+    <PackageReleaseNotes>
+    </PackageReleaseNotes>
     <Version>0.0.0-localbuild</Version>
     <Authors>Brian Chavez</Authors>
     <TargetFrameworks>net40;netstandard2.0</TargetFrameworks>
@@ -47,11 +31,6 @@ Full History Here: https://github.com/bchavez/Havoc/blob/master/HISTORY.md</Pack
   <PropertyGroup Condition=" '$(TargetFramework)' == 'netstandard1.3' ">
     <DefineConstants>$(DefineConstants);STANDARD;STANDARD13</DefineConstants>
   </PropertyGroup>
-  <ItemGroup>
-    <Compile Remove="Models\**" />
-    <EmbeddedResource Remove="Models\**" />
-    <None Remove="Models\**" />
-  </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Bogus" Version="28.4.1" />
     <PackageReference Include="Roslynator.Analyzers" Version="1.9.0" PrivateAssets="All" />
