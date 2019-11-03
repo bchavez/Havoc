@@ -34,7 +34,7 @@ Legend: :x: - Not Implemented Yet.
 	* `ThreadPoolChaos` - Keeps reference to thread pool threads, then later calls `Abort()` randomly causing thread pool threads to randomly abort executing code.
 	* `ProcessExit` - Calls `Environment.FailFast` and terminates the current running process immediately.
 * **`Disk`**
-	* :x: `CachedWrites` - Write as fast as possible using the same data to disk.
+	* `CachedWrites` - Write as fast as possible using the same data to disk.
 	* :x: `CachedReads` - Read as fast as possible reading the same data on disk. 
 	* :x: `RandomWrites` - Write random data to disk as fast as possible.
 	* :x: `RandomReads` - Read random data on disk as fast as possible.

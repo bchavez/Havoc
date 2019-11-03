@@ -1,3 +1,6 @@
+## v1.0.2
+* `Disk.CachedWrites` implemented.
+
 ## v1.0.1
 
 * `Cpu.Stress` implemented.
