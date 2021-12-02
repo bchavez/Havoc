@@ -1,5 +1,5 @@
 version: '{build}'
-image: Visual Studio 2017
+image: Visual Studio 2022
 
 environment:
   FAKE_DETAILED_ERRORS: true
@@ -50,7 +50,7 @@ deploy:
 
     - provider: NuGet
       api_key:
-          secure: 1nPS2ttf+N4+FUhd+GZycrL7YzSWQpZjnGOMCb5+pGJXSdx0IFvVF8xhTGna7B9t
+          secure: b2pMJ9N9zZoJHEUXFWhmJ6s/2mtyNq5l6Jax7Hj5t4wj2yIf8VUoxfbFB+Va18Ll
       artifact: NuGet
       on:
           branch: master
